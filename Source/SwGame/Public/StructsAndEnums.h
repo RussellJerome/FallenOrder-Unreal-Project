@@ -3,10 +3,11 @@
 #pragma once
 
 #include "CoreMinimal.h"
-//#include "StructsAndEnums.generated.h"
+#include "StructsAndEnums.generated.h"
 
  // Enum RsGameTechRT.ERsSwimPhysicalAnimationProfile
-enum class ERsSwimPhysicalAnimationProfile : uint8_t
+UENUM(BlueprintType)
+enum ERsSwimPhysicalAnimationProfile
 {
 	None = 0,
 	Swimming = 1,
@@ -15,7 +16,8 @@ enum class ERsSwimPhysicalAnimationProfile : uint8_t
 
 
 // Enum RsGameTechRT.ERsLocationSyncType
-enum class ERsLocationSyncType : uint8_t
+UENUM(BlueprintType)
+enum ERsLocationSyncType
 {
 	FEET_LOCATION_ACTOR_ORIENTATION = 0,
 	USE_TRANSFORM = 1,
@@ -35,7 +37,8 @@ enum ERsBreakSyncType
 };
 
 // Enum RsGameTechRT.ERsCombatState
-enum class ERsCombatState : uint8_t
+UENUM(BlueprintType)
+enum ERsCombatState
 {
 	Neutral = 0,
 	Attacking = 1,
@@ -84,15 +87,21 @@ enum class ERsCombatState : uint8_t
 	ERsCombatState_MAX = 44
 };
 
+USTRUCT(BlueprintType)
 struct FRsGeoLocator
 {
+	GENERATED_BODY()
+public:
 	unsigned char                                      UnknownData00[0xE0];                                      // 0x0000(0x00E0) MISSED OFFSET
 };
 
 // ScriptStruct RsGameTechRT.RsCharacterAnimDataBase
 // 0x0040
+USTRUCT(BlueprintType)
 struct FRsCharacterAnimDataBase
 {
+	GENERATED_BODY()
+public:
 	unsigned char                                      UnknownData00[0x8];                                       // 0x0000(0x0008) MISSED OFFSET
 	float                                              StartTime;                                                // 0x0008(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	bool                                               PlayRandomAnimation;                                      // 0x000C(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
@@ -113,15 +122,21 @@ struct FRsCharacterAnimDataBase
 
 // ScriptStruct RsGameTechRT.RsCharacterAnimationData
 // 0x0008 (0x0048 - 0x0040)
+USTRUCT(BlueprintType)
 struct FRsCharacterAnimationData : public FRsCharacterAnimDataBase
 {
+	GENERATED_BODY()
+public:
 	class UAnimationAsset*                             AnimAsset;                                                // 0x0040(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 };
 
 // ScriptStruct RsGameTechRT.RsSyncDataOverride
 // 0x0060
+USTRUCT(BlueprintType)
 struct FRsSyncDataOverride
 {
+	GENERATED_BODY()
+public:
 	UAnimationAsset*                             Animation;                                                // 0x0000(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	FName                                       SocketName;                                               // 0x0008(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	bool                                               BreakOnMontageBlendingOut;                                // 0x0010(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
@@ -132,8 +147,11 @@ struct FRsSyncDataOverride
 
 // ScriptStruct RsGameTechRT.RsSyncData
 // 0x0100
+USTRUCT(BlueprintType)
 struct FRsSyncData
 {
+	GENERATED_BODY()
+public:
 	bool                                               bDontUseAsFallback;                                       // 0x0000(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	bool                                               bUseHeroOffGroundFallback;                                // 0x0001(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	unsigned char                                      UnknownData00[0x6];                                       // 0x0002(0x0006) MISSED OFFSET
@@ -153,8 +171,11 @@ struct FRsSyncData
 
 // ScriptStruct RsGameTechRT.RsMasterSyncData
 // 0x0000 (0x0100 - 0x0100)
+USTRUCT(BlueprintType)
 struct FRsMasterSyncData : public FRsSyncData
 {
+	GENERATED_BODY()
+public:
 	bool                                               IsMoving;                                                 // 0x00F8(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	unsigned char                                      UnknownData00[0x7];                                       // 0x00F9(0x0007) MISSED OFFSET
 };
