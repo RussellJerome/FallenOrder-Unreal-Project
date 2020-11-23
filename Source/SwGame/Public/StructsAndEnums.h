@@ -842,7 +842,11 @@ UENUM(BlueprintType) enum ESwHolomapLayer
 	Layer4 = 3,
 	ESwHolomapLayer_MAX = 4
 };
+//Game Structs
 
+
+
+//
 
 USTRUCT(BlueprintType)
 struct FRsGeoLocator
