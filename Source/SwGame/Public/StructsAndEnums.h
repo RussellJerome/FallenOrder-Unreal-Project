@@ -3,95 +3,14 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "RsGameTechRT/Public/StructsAndEnums_RsGameTechRT.h"
 #include "StructsAndEnums.generated.h"
-
- // Enum RsGameTechRT.ERsSwimPhysicalAnimationProfile
-UENUM(BlueprintType)
-enum ERsSwimPhysicalAnimationProfile
-{
-	None = 0,
-	Swimming = 1,
-	ERsSwimPhysicalAnimationProfile_MAX = 2
-};
-
-
-// Enum RsGameTechRT.ERsLocationSyncType
-UENUM(BlueprintType)
-enum ERsLocationSyncType
-{
-	FEET_LOCATION_ACTOR_ORIENTATION = 0,
-	USE_TRANSFORM = 1,
-	FEET_LOCATION_MASTER_TO_SLAVE_ORIENTATION = 2,
-	ERsLocationSyncType_MAX = 3
-};
-
-
-// Enum RsGameTechRT.ERsBreakSyncType
-UENUM(BlueprintType)
-enum ERsBreakSyncType
-{
-	NoBreak = 0,
-	BreakInstance = 1,
-	BreakAll = 2,
-	ERsBreakSyncType_MAX = 3
-};
-
-// Enum RsGameTechRT.ERsCombatState
-UENUM(BlueprintType)
-enum ERsCombatState
-{
-	Neutral = 0,
-	Attacking = 1,
-	Reaction = 2,
-	Blocking = 3,
-	Parrying = 4,
-	ParrySuccess = 5,
-	Evading = 6,
-	Stunned = 7,
-	Telekinesis = 8,
-	UsingForce = 9,
-	CodeCombatStateCount = 10,
-	CustomCombatState1 = 11,
-	CustomCombatState2 = 12,
-	CustomCombatState3 = 13,
-	CustomCombatState4 = 14,
-	CustomCombatState5 = 15,
-	CustomCombatState6 = 16,
-	CustomCombatState7 = 17,
-	CustomCombatState8 = 18,
-	CustomCombatState9 = 19,
-	CustomCombatState10 = 20,
-	CustomCombatState11 = 21,
-	CustomCombatState12 = 22,
-	CustomCombatState13 = 23,
-	CustomCombatState14 = 24,
-	CustomCombatState15 = 25,
-	CustomCombatState16 = 26,
-	CustomCombatState17 = 27,
-	CustomCombatState18 = 28,
-	CustomCombatState19 = 29,
-	CustomCombatState20 = 30,
-	CustomCombatState21 = 31,
-	CustomCombatState22 = 32,
-	CustomCombatState23 = 33,
-	CustomCombatState24 = 34,
-	CustomCombatState25 = 35,
-	CustomCombatState26 = 36,
-	CustomCombatState27 = 37,
-	CustomCombatState28 = 38,
-	CustomCombatState29 = 39,
-	CustomCombatState30 = 40,
-	CustomCombatState31 = 41,
-	CustomCombatState32 = 42,
-	CustomCombatState_Max = 43,
-	ERsCombatState_MAX = 44
-};
 
 // Enum RsTechRT.ERsInfluenceLinearType
 UENUM(BlueprintType)
 enum ERsInfluenceLinearType
 {
-	NONE = 0,
+	NONE_ERsInfluenceLinearType = 0,
 	POSITION = 1,
 	VELOCITY = 2,
 	ACCELERATION = 3,
@@ -115,7 +34,7 @@ UENUM(BlueprintType) enum ERsBase
 	PARENT = 1,
 	WORLD = 2,
 	COUNT = 3,
-	UNDEFINED = 4,
+	UNDEFINED_ERsBase = 4,
 	ERsBase_MAX = 5
 };
 // END OF CURRENT SHIT NEEDED FOR TESTING 
@@ -196,12 +115,12 @@ UENUM(BlueprintType) enum ECameraMotionSmoothingTarget
 // Enum SwGame.EAbilityPriorities
 UENUM(BlueprintType) enum EAbilityPriorities
 {
-	Ignore = 0,
-	Low = 1,
-	Medium = 2,
-	High = 3,
-	Always = 4,
-	Count = 5,
+	Ignore_EAbilityPriorities = 0,
+	Low_EAbilityPriorities = 1,
+	Medium_EAbilityPriorities = 2,
+	High_EAbilityPriorities = 3,
+	Always_EAbilityPriorities = 4,
+	Count_EAbilityPriorities = 5,
 	EAbilityPriorities_MAX = 6
 };
 
@@ -273,7 +192,7 @@ UENUM(BlueprintType) enum ERsAbilityWeightClass
 	VeryLight = 0,
 	Light = 1,
 	Medium_AbilityWeight = 2,
-	Heavy = 3,
+	Heavy_ERsAbilityWeightClass = 3,
 	VeryHeavy = 4,
 	Count_AbilityWeight = 5,
 	ERsAbilityWeightClass_MAX = 6
@@ -295,7 +214,7 @@ UENUM(BlueprintType) enum ERsFallOutOfWorldResult
 {
 	Aborted = 0,
 	CausedDamage = 1,
-	Killed = 2,
+	Killed_ERsFallOutOfWorldResult = 2,
 	ERsFallOutOfWorldResult_MAX = 3
 };
 
@@ -303,7 +222,7 @@ UENUM(BlueprintType) enum ERsFallOutOfWorldResult
 // Enum SwGame.ERsUserAgeGroup
 UENUM(BlueprintType) enum ERsUserAgeGroup
 {
-	Unknown = 0,
+	Unknown_ERsUserAgeGroup = 0,
 	Underage = 1,
 	NotUnderage = 2,
 	ERsUserAgeGroup_MAX = 3
@@ -346,8 +265,8 @@ UENUM(BlueprintType) enum ERsTKPushPullDoorState
 // Enum SwGame.ESwForcePushGlancingDirection
 UENUM(BlueprintType) enum ESwForcePushGlancingDirection
 {
-	Left = 0,
-	Right = 1,
+	Left_ESwForcePushGlancingDirection = 0,
+	Right_ESwForcePushGlancingDirection = 1,
 	Count_ForcePush = 2,
 	ESwForcePushGlancingDirection_MAX = 3
 };
@@ -401,7 +320,7 @@ UENUM(BlueprintType) enum ESwAIBuddyDroidMoveMode
 {
 	None_SwAIBuddyDroidMoveMode = 0,
 	Follow = 1,
-	Attached = 2,
+	Attached_ESwAIBuddyDroidMoveMode = 2,
 	ESwAIBuddyDroidMoveMode_MAX = 3
 };
 
@@ -415,7 +334,7 @@ UENUM(BlueprintType) enum ESwAIBuddyState
 	Mount = 3,
 	MountFromWall = 4,
 	Dismount = 5,
-	Cine = 6,
+	Cine_ESwAIBuddyState = 6,
 	ESwAIBuddyState_MAX = 7
 };
 
@@ -427,7 +346,7 @@ UENUM(BlueprintType) enum ESwAIBuddyAttachPoint
 	Charging = 1,
 	RightShoulder = 2,
 	LeftShoulder = 3,
-	Zipline = 4,
+	Zipline_ESwAIBuddyAttachPoint = 4,
 	Holomap = 5,
 	ESwAIBuddyAttachPoint_MAX = 6
 };
@@ -525,7 +444,7 @@ UENUM(BlueprintType) enum ESwProjectileReflectionMode
 // Enum SwGame.ESwInputGroup
 UENUM(BlueprintType) enum ESwInputGroup
 {
-	All = 0,
+	All_ESwInputGroup = 0,
 	Gamepad = 1,
 	Keyboard = 2,
 	Count_ESwInputGroup = 3,
@@ -560,7 +479,7 @@ UENUM(BlueprintType) enum ESwHighlightType
 // Enum SwGame.ESwLightsaberMarksState
 UENUM(BlueprintType) enum ESwLightsaberMarksState
 {
-	Idle = 0,
+	Idle_ESwLightsaberMarksState = 0,
 	Tracing = 1,
 	Hit = 2,
 	Processing = 3,
@@ -571,7 +490,7 @@ UENUM(BlueprintType) enum ESwLightsaberMarksState
 // Enum SwGame.ESwMeditationTrainingCellStatusFlags
 UENUM(BlueprintType) enum ESwMeditationTrainingCellStatusFlags
 {
-	Disabled = 0,
+	Disabled_ESwMeditationTrainingCellStatusFlags = 0,
 	Selected = 1,
 	Occupied = 2,
 	Status = 3,
@@ -699,8 +618,8 @@ UENUM(BlueprintType) enum ESwRopeAttachmentSlideToAttachmentLengthState
 UENUM(BlueprintType) enum ESwRopeAttachmentPhysicalAnimationProfile
 {
 	None_ESwRopeAttachmentPhysicalAnimationProfile = 0,
-	Hanging = 1,
-	Climbing = 2,
+	Hanging_ESwRopeAttachmentPhysicalAnimationProfile = 1,
+	Climbing_ESwRopeAttachmentPhysicalAnimationProfile = 2,
 	ESwRopeAttachmentPhysicalAnimationProfile_MAX = 3
 };
 
@@ -731,8 +650,8 @@ UENUM(BlueprintType) enum ESwDestructibleActorParallelStateType
 	Default_ESwDestructibleActorParallelStateType = 1,
 	FrontHit = 2,
 	BackHit = 3,
-	ForcePush = 4,
-	ForcePull = 5,
+	ForcePush_ESwDestructibleActorParallelStateType = 4,
+	ForcePull_ESwDestructibleActorParallelStateType = 5,
 	ESwDestructibleActorParallelStateType_MAX = 6
 };
 
@@ -807,8 +726,8 @@ UENUM(BlueprintType) enum ESwWallRunState
 {
 	NotWallRunning = 0,
 	WallRunning = 1,
-	WallRunExpired = 2,
-	WallRunFall = 3,
+	WallRunExpired_ESwWallRunState = 2,
+	WallRunFall_ESwWallRunState = 3,
 	WallRunJump = 4,
 	ESwWallRunState_MAX = 5
 };
@@ -817,7 +736,7 @@ UENUM(BlueprintType) enum ESwWallRunState
 // Enum SwGame.ERsWindFieldVerticalInfluenceMode
 UENUM(BlueprintType) enum ERsWindFieldVerticalInfluenceMode
 {
-	Standard = 0,
+	Standard_ERsWindFieldVerticalInfluenceMode = 0,
 	OnlyWhenFalling = 1,
 	DirectVelocityChange = 2,
 	ERsWindFieldVerticalInfluenceMode_MAX = 3
