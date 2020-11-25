@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Engine/DataAsset.h"
-#include "StructsAndEnums.h"
+#include "StructsAndEnums_RsGameTechRT.h"
 #include "RsSyncDefinition.generated.h"
 
 /**
@@ -19,7 +19,7 @@ public:
 	TEnumAsByte<ERsBreakSyncType>                      BreakOnTakeDamage;                                        // 0x0031(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	TEnumAsByte<ERsLocationSyncType>                   LocationSyncType;                                         // 0x0032(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	unsigned char                                      UnknownData00[0xD];                                       // 0x0033(0x000D) MISSED OFFSET
-	FRsMasterSyncData                           Master;                                                   // 0x0040(0x0100) (Edit, DisableEditOnInstance)
+//	FRsMasterSyncData                           Master;                                                   // 0x0040(0x0100) (Edit, DisableEditOnInstance)
 	//TArray<FRsSlaveSyncData>                    Slaves;                                                   // 0x0140(0x0010) (Edit, ZeroConstructor, DisableEditOnInstance)
 	float                                              BlendInTime;                                              // 0x0150(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	float                                              BlendOutTime;                                             // 0x0154(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)

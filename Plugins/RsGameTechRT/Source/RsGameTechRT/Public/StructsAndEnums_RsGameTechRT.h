@@ -462,7 +462,7 @@ UENUM(BlueprintType) enum ERsLedgeShimmyTarget
 	LEAP_VERTICAL = 2,
 	OUTSIDE_CORNER = 3,
 	INSIDE_CORNER = 4,
-	UNKNOWN = 5,
+	UNKNOWN_ERsLedgeShimmyTarget = 5,
 	ERsLedgeShimmyTarget_MAX = 6
 };
 
@@ -565,8 +565,8 @@ UENUM(BlueprintType) enum ERsAIResourceLockoutMode
 // Enum RsGameTechRT.ERsAISpawnAssetRequestAsyncPriority
 UENUM(BlueprintType) enum ERsAISpawnAssetRequestAsyncPriority
 {
-	DEFAULT = 0,
-	HIGH = 1,
+	DEFAULT_ERsAISpawnAssetRequestAsyncPriority = 0,
+	HIGH_ERsAISpawnAssetRequestAsyncPriority = 1,
 	UNDEFINED = 2,
 	ERsAISpawnAssetRequestAsyncPriority_MAX = 3
 };
@@ -1474,12 +1474,12 @@ UENUM(BlueprintType) enum ERsHeroFlagSet
 	atkAir = 3,
 	atkSpecialFlip = 4,
 	atkWindow = 5,
-	attacking = 6,
+	attacking_ERsHeroFlagSet = 6,
 	attackingCharge = 7,
 	attackSpecialWindow = 8,
-	balanceBeam = 9,
+	balanceBeam_ERsHeroFlagSet = 9,
 	Barehanded = 10,
-	block = 11,
+	block_ERsHeroFlagSet = 11,
 	blockReaction = 12,
 	bufferAll = 13,
 	bufferAtk_ERsHeroFlagSet = 14,
@@ -1517,7 +1517,7 @@ UENUM(BlueprintType) enum ERsHeroFlagSet
 	DroidAttached = 46,
 	DroidDetached = 47,
 	evadeWindow = 48,
-	evading = 49,
+	evading_ERsHeroFlagSet = 49,
 	EnableZiplineJump = 50,
 	Flashlight = 51,
 	FlashlightZone = 52,
@@ -1538,16 +1538,16 @@ UENUM(BlueprintType) enum ERsHeroFlagSet
 	JumpWindow = 67,
 	ledgeGrab = 68,
 	ledgePullup = 69,
-	monkeyBeam = 70,
+	monkeyBeam_ERsHeroFlagSet = 70,
 	noExtCancel = 71,
 	NoWallPerch = 72,
 	parry = 73,
-	parrySuccess = 74,
+	parrySuccess_ERsHeroFlagSet = 74,
 	parryWindow = 75,
 	playerIdle = 76,
 	quickRecoverWindow = 77,
 	Quicksand_ERsHeroFlagSet = 78,
-	rope = 79,
+	rope_ERsHeroFlagSet = 79,
 	ropeStrafe = 80,
 	Sheathing = 81,
 	Slide_ERsHeroFlagSet = 82,
@@ -1557,7 +1557,7 @@ UENUM(BlueprintType) enum ERsHeroFlagSet
 	SuperJumpCharge = 86,
 	Swim_ERsHeroFlagSet = 87,
 	SwimBoost = 88,
-	telekinesis = 89,
+	telekinesis_ERsHeroFlagSet = 89,
 	Unsheathing = 90,
 	WallCrouch = 91,
 	WallJump = 92,
@@ -1580,7 +1580,7 @@ UENUM(BlueprintType) enum ERsHeroFlagSet
 	BatGrabbed = 109,
 	BatRiding = 110,
 	SprintWindow = 111,
-	BufferHeal = 112,
+	BufferHeal_ERsHeroFlagSet = 112,
 	HealWindow = 113,
 	WorldMapWindow = 114,
 	TutorialWalk = 115,
@@ -1608,12 +1608,12 @@ UENUM(BlueprintType) enum ERsHeroMotionTweaks
 	ShipWalk = 7,
 	SlowJog = 8,
 	WallPress_ERsHeroMotionTweaks = 9,
-	PlayerIdle = 10,
+	PlayerIdle_ERsHeroMotionTweaks = 10,
 	PlayerIdleRootMotion = 11,
 	CSMove = 12,
 	Cine = 13,
 	CineNoMotion = 14,
-	sprint = 15,
+	sprint_ERsHeroMotionTweaks = 15,
 	ForceSprint = 16,
 	BasicAir = 17,
 	FreeFall_Cinematics = 18,
@@ -1656,7 +1656,7 @@ UENUM(BlueprintType) enum ERsHeroMotionTweaks
 	evadeBackflipFall = 55,
 	zTargetFace = 56,
 	zTargetJump = 57,
-	bLock = 58,
+	bLock_ERsHeroMotionTweaks = 58,
 	Webbed = 59,
 	Swim_ERsHeroMotionTweaks = 60,
 	SwimVolumeOnSurface = 61,
@@ -1685,7 +1685,7 @@ UENUM(BlueprintType) enum ERsHeroMotionTweaks
 	Reflect = 84,
 	LightsaberCharge = 85,
 	LightsaberNormals = 86,
-	LedgeGrab = 87,
+	LedgeGrab_ERsHeroMotionTweaks = 87,
 	Climb_ERsHeroMotionTweaks = 88,
 	Zipline_ERsHeroMotionTweaks = 89,
 	ZiplineJump = 90,
@@ -1693,7 +1693,7 @@ UENUM(BlueprintType) enum ERsHeroMotionTweaks
 	ConstrainedJumpClimbStickiness = 92,
 	DropOff = 93,
 	Flashlight_ERsHeroMotionTweaks = 94,
-	RopeStrafe = 95,
+	RopeStrafe_ERsHeroMotionTweaks = 95,
 	RopeStrafeFaceRope = 96,
 	RopeShortcut = 97,
 	RopeSwing = 98,
@@ -1819,11 +1819,11 @@ UENUM(BlueprintType) enum ERsLimitAxisOption
 // Enum RsGameTechRT.ERsConstrainedJumpDirection
 UENUM(BlueprintType) enum ERsConstrainedJumpDirection
 {
-	NONE = 0,
+	NONE_ERsConstrainedJumpDirection = 0,
 	UP_ERsConstrainedJumpDirection = 1,
-	RIGHT = 2,
+	RIGHT_ERsConstrainedJumpDirection = 2,
 	UP_RIGHT = 3,
-	LEFT = 4,
+	LEFT_ERsConstrainedJumpDirection = 4,
 	UP_LEFT = 5,
 	ERsConstrainedJumpDirection_MAX = 6
 };
@@ -1966,7 +1966,7 @@ UENUM(BlueprintType) enum ERsCharacterDefense
 	Unknown_ERsCharacterDefense = 0,
 	Block_ERsCharacterDefense = 1,
 	BlockContact = 2,
-	Parry = 3,
+	Parry_ERsCharacterDefense = 3,
 	ParryNeutral = 4,
 	Evade = 5,
 	EvadeForceAbility = 6,
@@ -2192,7 +2192,7 @@ UENUM(BlueprintType) enum ERsZiplineMovementDirection
 UENUM(BlueprintType) enum ERsZiplineEntryType
 {
 	NoEntry = 0,
-	Air = 1,
+	Air_ERsZiplineEntryType = 1,
 	Ground_ERsZiplineEntryType = 2,
 	ERsZiplineEntryType_MAX = 3
 };
@@ -2217,4 +2217,72 @@ UENUM(BlueprintType) enum ERsZiplineAttachmentState
 	Entry_ERsZiplineAttachmentState = 2,
 	Movement = 3,
 	ERsZiplineAttachmentState_MAX = 4
+};
+
+// ScriptStruct RsGameTechRT.RsPhysicalAnimationRuntimeProfileParameters
+// 0x0010
+USTRUCT(BlueprintType)
+struct FRsPhysicalAnimationRuntimeProfileParameters
+{
+	GENERATED_BODY()
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsPhysicalAnimationRuntimeProfileParameters")
+	float                                              ActivationDelayTime;                                      // 0x0000(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsPhysicalAnimationRuntimeProfileParameters")
+	float                                              FadeInTime;                                               // 0x0004(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsPhysicalAnimationRuntimeProfileParameters")
+	float                                              FadeOutTime;                                              // 0x0008(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsPhysicalAnimationRuntimeProfileParameters")
+	bool                                               StopAnyPreviousPhysicalAnimation;                         // 0x000C(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	
+	unsigned char                                      UnknownData00[0x3];                                       // 0x000D(0x0003) MISSED OFFSET
+};
+
+// ScriptStruct RsGameTechRT.RsPhysicalAnimationParameters
+// 0x0160
+USTRUCT(BlueprintType)
+struct FRsPhysicalAnimationParameters
+{
+	GENERATED_BODY()
+public:
+	bool                                               DoNotActivate;                                            // 0x0000(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	//unsigned char                                      UnknownData00[0x7];                                       // 0x0001(0x0007) MISSED OFFSET
+	FName                                       ProfileName;                                              // 0x0008(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	//FRsPhysicalAnimationBoneParameters          DefaultBone;                                              // 0x0010(0x0068) (Edit)
+	//FRsPhysicalAnimationBoneParameters          RootBoneBody;                                             // 0x0078(0x0068) (Edit)
+	//TArray<FRsPhysicalAnimationBoneParameters>  BonesOverride;                                            // 0x00E0(0x0010) (Edit, ZeroConstructor)
+	//TArray<FRsPhysicalAnimationJointAngularParameters> JointsAngularOverride;                                    // 0x00F0(0x0010) (Edit, ZeroConstructor)
+	//TArray<FRsPhysicalAnimationJointLinearParameters> JointsLinearOverride;                                     // 0x0100(0x0010) (Edit, ZeroConstructor)
+	float                                              MaximumLinearVelocity;                                    // 0x0110(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              MaximumAngularVelocity;                                   // 0x0114(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              MinimumPhysicsBlendWeightFromAnimationNotifies;           // 0x0118(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              MaximumPhysicsBlendWeightFromAnimationNotifies;           // 0x011C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              OverrideBlendTimeForPhysicsBlendWeightFromAnimationNotifies;// 0x0120(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              OverrideProjectionLinearThreshold;                        // 0x0124(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	int8_t                                             OverrideProjectionActivation;                             // 0x0128(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	EFRsPhysicalAnimationBlendingCustomController      blendingCustomController;                                 // 0x0129(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	//FRsPhysicalAnimationBlendingCustomControllerParameters BlendingCustomControllerParameters;                       // 0x012A(0x0001) (Edit)
+	EFRsPhysicalAnimationCustomBlendInPhysics          CustomBlendInPhysics;                                     // 0x012B(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      ProfilePriority;                                          // 0x012C(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UpdateActorWorldPositionFromPhysics : 1;                  // 0x012D(0x0001) (Edit)
+	unsigned char                                      UseRsDominanceGroupFromOwnerKineticActor : 1;             // 0x012D(0x0001) (Edit)
+	unsigned char                                      EnableRagdollCollisionProfile : 1;                        // 0x012D(0x0001) (Edit)
+	unsigned char                                      EnableHardcodedCollisionSettings : 1;                     // 0x012D(0x0001) (Edit)
+	unsigned char                                      ApplyRootMotion : 1;                                      // 0x012D(0x0001) (Edit)
+	unsigned char                                      ZeroRsPhysicsVelocity : 1;                                // 0x012D(0x0001) (Edit)
+	unsigned char                                      ConfigureCollisionSettingsForCharacterWeapons : 1;        // 0x012D(0x0001) (Edit)
+	unsigned char                                      ModifyPhysicsAssetCollisionsToIncludeWeapons : 1;         // 0x012D(0x0001) (Edit)
+	unsigned char                                      SetupRagdollSoundEvents : 1;                              // 0x012E(0x0001) (Edit)
+	unsigned char                                      DoNotForceDependentComponentsToPostPhysics : 1;           // 0x012E(0x0001) (Edit)
+	unsigned char                                      UseExclusivePhysicsScene : 1;                             // 0x012E(0x0001) (Edit)
+	unsigned char                                      UnknownData01[0x1];                                       // 0x012F(0x0001) MISSED OFFSET
+	//FRsPhysicalAnimationTimeUpdateSchemeParameters TimeUpdateScheme;                                         // 0x0130(0x0008) (Edit)
+	float                                              OverrideDeltaTimeForSmoothVelocity;                       // 0x0138(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData02[0x4];                                       // 0x013C(0x0004) MISSED OFFSET
+	UPhysicalMaterial*                           PhysicalMaterialOverride;                                 // 0x0140(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	//URsPhysicalAnimationMotorsDriveProfile*      MotorsDriveProfile;                                       // 0x0148(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	//TArray<FRsPhysicalAnimationMotorsStrengthModifier> MotorsStrengthModifiers;                                  // 0x0150(0x0010) (Edit, ZeroConstructor)
 };

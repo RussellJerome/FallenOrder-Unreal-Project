@@ -3,14 +3,14 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "RsTechRT/Public/RsActor.h"
-#include "RsCharacter.generated.h"
+#include "RsHero.h"
+#include "SwHero.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class RSGAMETECHRT_API ARsCharacter : public ARsActor
+class SWGAME_API ASwHero : public ARsHero
 {
 	GENERATED_BODY()
 	

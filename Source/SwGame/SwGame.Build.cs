@@ -8,7 +8,7 @@ public class SwGame : ModuleRules
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 	
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "RsGameTechRT" });
+		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "RsGameTechRT", "RsTechRT" });
 
 		PrivateDependencyModuleNames.AddRange(new string[] {  });
 

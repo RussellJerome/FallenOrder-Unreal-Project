@@ -12,7 +12,7 @@ enum ERsInfluenceLinearType
 {
 	NONE_ERsInfluenceLinearType = 0,
 	POSITION = 1,
-	VELOCITY = 2,
+	VELOCITY_ERsInfluenceLinearType = 2,
 	ACCELERATION = 3,
 	POSITION_TIME_REMAP = 4,
 	ERsInfluenceLinearType_MAX = 5
@@ -33,7 +33,7 @@ UENUM(BlueprintType) enum ERsBase
 	LOCAL = 0,
 	PARENT = 1,
 	WORLD = 2,
-	COUNT = 3,
+	COUNT_ERsBase = 3,
 	UNDEFINED_ERsBase = 4,
 	ERsBase_MAX = 5
 };

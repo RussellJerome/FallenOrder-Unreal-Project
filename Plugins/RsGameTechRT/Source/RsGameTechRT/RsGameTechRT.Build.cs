@@ -39,7 +39,6 @@ public class RsGameTechRT : ModuleRules
 				"Slate",
 				"SlateCore",
                 "RsTechRT",
-                 "SwGame",
 				// ... add private dependencies that you statically link with here ...	
 			}
 			);

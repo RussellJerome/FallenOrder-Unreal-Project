@@ -7,7 +7,7 @@
 #include "UObject/WeakObjectPtrTemplates.h"
 #include "GameFramework/Actor.h"
 #include "Animation/AnimationAsset.h"
-#include "StructsAndEnums.h"
+#include "StructsAndEnums_RsGameTechRT.h"
 #include "RsSyncInstance.generated.h"
 
 /**
@@ -30,7 +30,7 @@ public:
 	unsigned char                                      UnknownData02[0x3];                                       // 0x0045(0x0003) MISSED OFFSET
 	float                                              BlendInTime;                                              // 0x0048(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	float                                              BlendOutTime;                                             // 0x004C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	FRsCharacterAnimationData                   DeathAnimationData;                                       // 0x0050(0x0048) (Edit, BlueprintVisible)
+	//FRsCharacterAnimationData                   DeathAnimationData;                                       // 0x0050(0x0048) (Edit, BlueprintVisible)
 	bool                                               bNavIgnoreZ;                                              // 0x0098(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData03[0x27];                                      // 0x0099(0x0027) MISSED OFFSET
 	//FScriptMulticastDelegate                    OnSyncStoppedDelegate;                                    // 0x00C0(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)

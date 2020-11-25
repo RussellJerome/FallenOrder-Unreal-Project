@@ -14,5 +14,5 @@ class RSGAMETECHRT_API URsMasterSyncInstance : public URsSyncInstance
 {
 	GENERATED_BODY()
 public:
-	FRsGeoLocator                               ConstraintLocator;                                        // 0x01F0(0x00E0) (Edit, BlueprintVisible)
+	//FRsGeoLocator                               ConstraintLocator;                                        // 0x01F0(0x00E0) (Edit, BlueprintVisible)
 };
