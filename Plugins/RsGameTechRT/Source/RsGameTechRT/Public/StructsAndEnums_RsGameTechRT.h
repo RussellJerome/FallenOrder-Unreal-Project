@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Animation/AnimationAsset.h"
 #include "StructsAndEnums_RsGameTechRT.generated.h"
 
 //---------------------------------------------------------------------------
@@ -2282,7 +2283,35 @@ public:
 	//FRsPhysicalAnimationTimeUpdateSchemeParameters TimeUpdateScheme;                                         // 0x0130(0x0008) (Edit)
 	float                                              OverrideDeltaTimeForSmoothVelocity;                       // 0x0138(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData02[0x4];                                       // 0x013C(0x0004) MISSED OFFSET
-	UPhysicalMaterial*                           PhysicalMaterialOverride;                                 // 0x0140(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	//UPhysicalMaterial                           PhysicalMaterialOverride;                                 // 0x0140(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
 	//URsPhysicalAnimationMotorsDriveProfile*      MotorsDriveProfile;                                       // 0x0148(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
 	//TArray<FRsPhysicalAnimationMotorsStrengthModifier> MotorsStrengthModifiers;                                  // 0x0150(0x0010) (Edit, ZeroConstructor)
+};
+
+USTRUCT(BlueprintType)
+struct FDismembermentConfiguration
+{
+	GENERATED_BODY()
+public:
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FDismembermentConfiguration")
+		FName MeshComponentName;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FDismembermentConfiguration")
+		TWeakObjectPtr<USkinnedMeshComponent> SkinnedMeshComponent;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FDismembermentConfiguration")
+		bool bChangeToRagdoll;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FDismembermentConfiguration")
+		bool bApplyRadialImpulse;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FDismembermentConfiguration")
+		FVector ImpulseDirection;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FDismembermentConfiguration")
+		float ImpulseStrength;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FDismembermentConfiguration")
+		UAnimationAsset *AnimationToPlay;
 };
