@@ -7,6 +7,8 @@
 #include "StructsAndEnums_RsGameTechRT.h"
 #include "RsCharacterDefinition.h"
 #include "Components/MeshComponent.h"
+#include "Components/SkeletalMeshComponent.h"
+#include "RsHealthComponent.h"
 #include "RsCharacter.generated.h"
 
 /**
@@ -17,6 +19,14 @@ class RSGAMETECHRT_API ARsCharacter : public ARsActor
 {
 	GENERATED_BODY()
 public:
+	ARsCharacter();
+
+	UPROPERTY(VisibleAnywhere)
+	class USkeletalMeshComponent* FacialRig;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	class URsHealthComponent* HealthComponent;
+
 	//URsBitStack* ControlStack;
 	/*
 	struct FScriptMulticastDelegate                    OnCharacterInterrupted;                                   // 0x1878(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
@@ -30,10 +40,16 @@ public:
 	struct FScriptMulticastDelegate                    OnCombatStateChangedEvent;                                // 0x18F8(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
 	struct FScriptMulticastDelegate                    OnIsInWaterStateChanged;                                  // 0x1908(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
 	*/
-	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RsCharacter")
 	FName HeadBoneName;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RsCharacter")
 	float LookAtYawSpeed;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RsCharacter")
 	float LookAtPitchSpeed;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RsCharacter")
 	float LookAtYawThreshold;
 	//struct FScriptMulticastDelegate                    OnInstigatedAnyDamage;                                    // 0x2150(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
 	//struct FScriptMulticastDelegate                    OnInstigatedZeroDamage;                                   // 0x2160(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
@@ -42,37 +58,77 @@ public:
 	//struct FScriptMulticastDelegate                    OnRsDidProjectileDamage;                                  // 0x21A0(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
 
 	//FRsDamageInfo LastDamageInfo;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RsCharacter")
 	int CharSyncID;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RsCharacter")
 	float CinematicBlendInterp;
 	//TEnumAsByte<ECollisionEnabled>                     PreCinematicSkeletalMeshCollisionEnabled;                 // 0x2338(0x0001) (ZeroConstructor, IsPlainOldData)
 	
 	//class URsCombatStateMachine*                       CombatStateMachine;                                       // 0x2340(0x0008) (ExportObject, ZeroConstructor, Transient, InstancedReference, IsPlainOldData)
 	//class URsPhysicalAnimationComponent*               RsPhysicalAnimationComponent;                             // 0x2348(0x0008) (Edit, ExportObject, ZeroConstructor, DisableEditOnInstance, EditConst, InstancedReference, IsPlainOldData)
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RsCharacter")
 	bool bCanReceiveDamageFromPhysicsCollision;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RsCharacter")
 	bool bAttackHit;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RsCharacter")
 	bool bSkipDeathAnimation;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RsCharacter")
 	bool bCanBlock;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RsCharacter")
 	bool bCanParry;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RsCharacter")
 	bool bCanEvade;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RsCharacter")
 	bool bCanDoGlancingBlow;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RsCharacter")
 	bool bIgnoresKillPlane;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RsCharacter")
 	bool bAlwaysDeflectProjectiles;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RsCharacter")
 	bool bForceSlowed;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RsCharacter")
 	bool bPreventCombatSuction;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RsCharacter")
 	bool bEnableCharacterPhysicsOnCineEnd;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RsCharacter")
 	bool bSkipCinematicBlendInterpReset;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RsCharacter")
 	bool bInexpensiveCharacter;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RsCharacter")
 	bool bAllowCheapIk;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RsCharacter")
 	float AttackDamageMultiplier;
-	USkeletalMeshComponent* FacialRig;
+
 	//TWeakObjectPtr<UAnimMontage> CombatMontage;
 	//FGameplayTagContainer InitialAttributeTags;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RsCharacter")
 	URsCharacterDefinition* CharacterDefinition;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RsCharacter")
 	URsCharacterDefinition* CharacterDefinition_TempHack;
-	//URsHealthComponent*                          HealthComponent;                                          // 0x2618(0x0008) (Edit, ExportObject, ZeroConstructor, DisableEditOnInstance, EditConst, InstancedReference, IsPlainOldData)
+	
 	//FRsFrameDamageTracker FrameDamageTracker;
 
+
+	//Functions
 	UFUNCTION(BlueprintCallable, Category = "RsCharacter")
 		bool WasNavState(ERsNavState State) { return false; };
 

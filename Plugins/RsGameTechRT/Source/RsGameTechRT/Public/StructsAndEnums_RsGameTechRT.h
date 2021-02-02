@@ -2315,3 +2315,87 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FDismembermentConfiguration")
 		UAnimationAsset *AnimationToPlay;
 };
+
+USTRUCT(BlueprintType)
+struct FRsHitPause
+{
+	GENERATED_BODY()
+public:
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsHitPause")
+	TEnumAsByte<ERsHitPauseType> HitPauseType;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsHitPause")
+	float Duration;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsHitPause")
+	float AnimRate;
+};
+
+USTRUCT(BlueprintType)
+struct FRsHitImpulse
+{
+	GENERATED_BODY()
+public:
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsHitImpulse")
+	int HitImpulseType;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsHitImpulse")
+	float Duration;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsHitImpulse")
+	float Distance;
+};
+
+USTRUCT(BlueprintType)
+struct FRsHitEvent
+{
+	GENERATED_BODY()
+public:
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsHitEvent")
+	UClass* DamageTypeClass;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsHitEvent")
+	FName AttackType;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsHitEvent")
+	float HeroDamageFactor;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsHitEvent")
+	TEnumAsByte <ERsDamageValueLevel> DamageLevel;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsHitEvent")
+	TEnumAsByte <ERsBlockDepleteLevel> BlockDepleteLevel;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsHitEvent")
+	TEnumAsByte <ERsBlockLevel> BlockLevel;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsHitEvent")
+	float BlockReactAngleCos;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsHitEvent")
+	bool Undodgeable;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsHitEvent")
+	bool Unparryable;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsHitEvent")
+	bool SingleHit;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsHitEvent")
+	bool NoDamageInSlowdown;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsHitEvent")
+	bool DamageFriendlies;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsHitEvent")
+	FRsHitPause HitPause;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsHitEvent")
+	FRsHitImpulse HitImpulse;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsHitEvent")
+	int UniqueHitID;
+};
