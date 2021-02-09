@@ -9,13 +9,21 @@
 #include "RsSyncDefinition.h"
 #include "RsMasterSyncInstance.h"
 #include "RsSlaveSyncInstance.h"
-//#include "Respawn/RsStreamingDefinition.h"
 #include "RsPhysicalAnimationProfile.h"
+#include "Engine/Public/Respawn/Streaming/RsStreamingDefinition.h"
+//#include "Engine/RsStreamingDefinition.h"
+#include "Engine/World.h"
+#include "Engine/Engine.h"
+#include "LatentActions.h"
+#include "DelayAction.h"
 #include "RsGameplayStatics.generated.h"
 
 /**
  * 
  */
+
+
+
 
 UCLASS()
 class RSGAMETECHRT_API URsGameplayStatics : public UBlueprintFunctionLibrary
@@ -31,12 +39,6 @@ public:
 	
 	//UFUNCTION(BlueprintCallable, Category = "RsGameplayStatics|Streaming", meta = (WorldContext = "WorldContextObject"))
 	//static void UnloadStandaloneStreamingLevel(UObject* WorldContextObject, URsStreamingDefinition* StreamingLevelDefinition, FLatentActionInfo& LatentInfo);
-	
-	UFUNCTION(BlueprintCallable, Category = "RsGameplayStatics|Streaming", meta = (Latent, LatentInfo = "LatentInfo", WorldContext = "WorldContextObject"))
-	static void UnloadAllStreamingAreas(UObject* WorldContextObject, FLatentActionInfo& LatentInfo);
-	
-	UFUNCTION(BlueprintCallable, Category = "RsGameplayStatics|Streaming", meta = (WorldContext = "WorldContextObject"))
-	static void UnloadAllStandaloneStreamingLevels(UObject* WorldContextObject);
 
 
 	UFUNCTION(BlueprintCallable, Category = "RsGameplayStatics", meta = (Latent, LatentInfo = "LatentInfo", WorldContext = "WorldContextObject"))
@@ -45,6 +47,17 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "RsGameplayStatics", meta = (WorldContext = "WorldContextObject"))
 	void SyncActorsFromDefinitionHelper(UObject* WorldContextObject, FTransform& Transform, URsSyncDefinition* SyncDefinition, AActor* Master, FVector2D& MasterBlendSpaceInput, TArray<AActor*> Actors, TArray< FVector2D> SlaveBlendSpaceinputs, UAnimationAsset* OverrideAnimation, URsMasterSyncInstance* MasterInstance, TArray<URsSlaveSyncInstance*> SlaveInstanceArray);
 	
+
+	
+	//Test Functions
+	UFUNCTION(BlueprintCallable, Category = "RsGameplayStatics", meta = (WorldContext = "WorldContextObject"))
+		static bool SetWorldRootLevel(UObject* WorldContextObject, URsStreamingDefinition* StreamingLevelDefinition) { return false; };
+
+	UFUNCTION(BlueprintCallable, Category = "RsGameplayStatics|Streaming", meta = (Latent, LatentInfo = "LatentInfo", WorldContext = "WorldContextObject"))
+		static void UnloadAllStreamingAreas(UObject* WorldContextObject, FLatentActionInfo LatentInfo) {};
+
+	UFUNCTION(BlueprintCallable, Category = "RsGameplayStatics", meta = (WorldContext = "WorldContextObject"))
+		static void UnloadAllStandaloneStreamingLevels(UObject* WorldContextObject) {};
 
 
 	UFUNCTION(BlueprintCallable, Category = "RsGameplayStatics")
@@ -57,12 +70,13 @@ public:
 		static ARsHero* RsGetPlayerHero(UObject* WorldContextObject);
 	
 	UFUNCTION(BlueprintCallable, Category = "RsGameplayStatics", meta = (Latent, LatentInfo = "LatentInfo", WorldContext = "WorldContextObject"))
-		static void LoadWorld(UObject* WorldContextObject, const FLatentActionInfo& LatentInfo, const FName& WorldName, const FName& PlayerStartName, bool bAllowLoadoutOverride);
+		static void LoadWorld(UObject* WorldContextObject, FLatentActionInfo LatentInfo, const FName& WorldName, const FName& PlayerStartName, bool bAllowLoadoutOverride) {};
 	
 	UFUNCTION(BlueprintCallable, Category = "RsGameplayStatics", meta = (Latent, LatentInfo = "LatentInfo", WorldContext = "WorldContextObject"))
 		static void LoadStreamingArea(UObject* WorldContextObject, const FName& StreamingArea, const FName& InitialLoadToken, bool bShouldBlockOnLoad, const FString& OptionalLoadOrder, const FLatentActionInfo& LatentInfo);
 
-	//void STATIC_LoadStandaloneStreamingLevel(class UObject* WorldContextObject, class URsStreamingDefinition* StreamingLevelDefinition, TEnumAsByte<ERsDesiredLevelLoadState> DesiredLoadState, const struct FName& InitialLoadToken, const struct FLatentActionInfo& LatentInfo);
+	UFUNCTION(BlueprintCallable, Category = "RsGameplayStatics", meta = (Latent, LatentInfo = "LatentInfo", WorldContext = "WorldContextObject"))
+		static void LoadStandaloneStreamingLevel(UObject* WorldContextObject, URsStreamingDefinition* StreamingLevelDefinition, TEnumAsByte<ERsDesiredLevelLoadState> DesiredLoadState, const FName& InitialLoadToken, FLatentActionInfo LatentInfo) {};
 	
 	UFUNCTION(BlueprintCallable, Category = "RsGameplayStatics", meta = (Latent, LatentInfo = "LatentInfo", WorldContext = "WorldContextObject"))
 		static void LoadPlayerStartListForWorld(UObject* WorldContextObject, const FLatentActionInfo& LatentInfo, const FName& WorldName);

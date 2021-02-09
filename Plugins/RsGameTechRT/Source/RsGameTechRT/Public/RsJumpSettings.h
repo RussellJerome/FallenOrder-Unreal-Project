@@ -21,7 +21,7 @@ public:
 	float                                              HorizontalImpulse;                                        // 0x0004(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 };
 
-UCLASS()
+UCLASS(Blueprintable, BlueprintType)
 class RSGAMETECHRT_API URsJumpSettings : public UDataAsset
 {
 	GENERATED_BODY()

@@ -10,10 +10,6 @@ void URsGameplayStatics::UnloadStreamingArea(UObject* WorldContextObject, FName&
 
 //void URsGameplayStatics::UnloadStandaloneStreamingLevel(UObject* WorldContextObject, URsStreamingDefinition* StreamingLevelDefinition, FLatentActionInfo& LatentInfo) {};
 
-void URsGameplayStatics::UnloadAllStreamingAreas(UObject* WorldContextObject, FLatentActionInfo& LatentInfo) {};
-
-void URsGameplayStatics::UnloadAllStandaloneStreamingLevels(class UObject* WorldContextObject) {};
-
 void URsGameplayStatics::TeleportLoad(UObject* WorldContextObject, FLatentActionInfo& LatentInfo, FName& PlayerStartName) {};
 
 void URsGameplayStatics::SyncActorsFromDefinitionHelper(UObject* WorldContextObject, FTransform& Transform, URsSyncDefinition* SyncDefinition, AActor* Master, FVector2D& MasterBlendSpaceInput, TArray<AActor*> Actors, TArray< FVector2D> SlaveBlendSpaceinputs, UAnimationAsset* OverrideAnimation, URsMasterSyncInstance* MasterInstance, TArray<URsSlaveSyncInstance*> SlaveInstanceArray) {};
@@ -28,8 +24,6 @@ void URsGameplayStatics::SetHealth(ARsCharacter* Character, float Health, bool S
 void URsGameplayStatics::SetCanDie(ARsCharacter* Character, bool bCanDie) {};
 
 ARsHero* URsGameplayStatics::RsGetPlayerHero(UObject* WorldContextObject) { return NULL; };
-
-void URsGameplayStatics::LoadWorld(UObject* WorldContextObject, const FLatentActionInfo& LatentInfo, const FName& WorldName, const FName& PlayerStartName, bool bAllowLoadoutOverride) {};
 
 void URsGameplayStatics::LoadStreamingArea(UObject* WorldContextObject, const FName& StreamingArea, const FName& InitialLoadToken, bool bShouldBlockOnLoad, const FString& OptionalLoadOrder, const FLatentActionInfo& LatentInfo) {};
 
