@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Animation/AnimationAsset.h"
+#include "Engine/Public/Respawn/Streaming/RsStreamingDefinition.h"
 #include "StructsAndEnums_RsGameTechRT.generated.h"
 
 //---------------------------------------------------------------------------
@@ -2398,4 +2399,133 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsHitEvent")
 	int UniqueHitID;
+};
+
+USTRUCT(BlueprintType)
+struct FRsComponentRecord
+{
+	GENERATED_BODY()
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsComponentRecord")
+	FName                                       Class;                                                    // 0x0000(0x0008) (ZeroConstructor, SaveGame, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsComponentRecord")
+	FString                                      UniqueIdentifier;                                         // 0x0008(0x0010) (ZeroConstructor, SaveGame)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsComponentRecord")
+	TArray<UObject*>                              ComponentData;                                            // 0x0018(0x0010) (ZeroConstructor, SaveGame)
+};
+
+USTRUCT(BlueprintType)
+struct FRsActorRecord
+{
+	GENERATED_BODY()
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsActorRecord")
+	FName                                       Class;                                                    // 0x0000(0x0008) (ZeroConstructor, SaveGame, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsActorRecord")
+	FTransform                                  Transform;                                                // 0x0010(0x0030) (SaveGame, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsActorRecord")
+	FString                                      UniqueIdentifier;                                         // 0x0040(0x0010) (ZeroConstructor, SaveGame)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsActorRecord")
+	TArray<UObject*>                              ActorData;                                                // 0x0050(0x0010) (ZeroConstructor, SaveGame)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsActorRecord")
+	TArray<FRsComponentRecord>                  SerializedComponents;                                     // 0x0060(0x0010) (ZeroConstructor, SaveGame)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsActorRecord")
+	TMap<FName, FString>                  PropertyOverrides;                                        // 0x0070(0x0050) (ZeroConstructor, SaveGame)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsActorRecord")
+	bool                                               bTransformSet;                                            // 0x00C0(0x0001) (ZeroConstructor, SaveGame, IsPlainOldData)
+};
+
+USTRUCT(BlueprintType)
+struct FRsPlayerStartRecord
+{
+	GENERATED_BODY()
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsActorRecord")
+	FName                                       PlayerStartName;                                          // 0x0000(0x0008) (ZeroConstructor, SaveGame, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsActorRecord")
+	FName                                       PlanetName;                                               // 0x0008(0x0008) (ZeroConstructor, SaveGame, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsActorRecord")
+	URsStreamingDefinition*                      RootStreamingLevelDefinition;                             // 0x0010(0x0008) (ZeroConstructor, SaveGame, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsActorRecord")
+	FSoftObjectPath                             RootStreamingDefinitionPath;                              // 0x0018(0x0018) (ZeroConstructor, SaveGame)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsActorRecord")
+	FTransform                                  PlayerStartTransform;                                     // 0x0030(0x0030) (SaveGame, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsActorRecord")
+	TArray<FRsStreamingAreaRef>                 StreamingAreas;                                           // 0x0060(0x0010) (ZeroConstructor, SaveGame)
+};
+
+USTRUCT(BlueprintType)
+struct FRsSaveGameMetaData
+{
+	GENERATED_BODY()
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsSaveGameMetaData")
+	FString                                      PlanetRegion;                                             // 0x0000(0x0010) (BlueprintVisible, ZeroConstructor)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsSaveGameMetaData")
+	int                                                Difficulty;                                               // 0x0010(0x0004) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsSaveGameMetaData")
+	FDateTime                                   ElapsedPlayTime;                                          // 0x0018(0x0008) (BlueprintVisible, ZeroConstructor)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsSaveGameMetaData")
+	float                                              PercentComplete;                                          // 0x0020(0x0004) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsSaveGameMetaData")
+	bool                                               bMainStoryComplete;                                       // 0x0024(0x0001) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsSaveGameMetaData")
+	bool                                               bIsNewGamePlus;                                           // 0x0025(0x0001) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+};
+
+USTRUCT(BlueprintType)
+struct FRsSaveGameInfo
+{
+	GENERATED_BODY()
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsSaveGameInfo")
+	FString                                      SaveName;                                                 // 0x0000(0x0010) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsSaveGameInfo")
+	FName                                       PlanetName;                                               // 0x0010(0x0008) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsSaveGameInfo")
+	TWeakObjectPtr<URsStreamingDefinition>       StreamingDefinition;                                      // 0x0018(0x0008) (ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsSaveGameInfo")
+	FSoftObjectPath                             StreamingDefinitionPath;                                  // 0x0020(0x0018) (ZeroConstructor)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsSaveGameInfo")
+	FName                                       StreamingPlayerStartName;                                 // 0x0038(0x0008) (ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsSaveGameInfo")
+	FDateTime                                   TimeSaved;                                                // 0x0040(0x0008) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsSaveGameInfo")
+	FText                                       TimeSavedText;                                            // 0x0048(0x0028) (BlueprintVisible, BlueprintReadOnly)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsSaveGameInfo")
+	/*Int I think, will test later*/ int                                     SaveSlot;                                                 // 0x0060(0x0001) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsSaveGameInfo")
+	int                                                Changelist;                                               // 0x0064(0x0004) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsSaveGameInfo")
+	bool                                               bCorrupt;                                                 // 0x0068(0x0001) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsSaveGameInfo")
+	FRsSaveGameMetaData                         MetaData;                                                 // 0x0070(0x0028) (BlueprintVisible, BlueprintReadOnly)
 };
