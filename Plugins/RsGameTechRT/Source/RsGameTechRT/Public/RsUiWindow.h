@@ -36,7 +36,7 @@ public:
 	bool                                               bCloseOnCancel = true;                                           // 0x024C(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RsUiWindow")
-	bool                                               bDestroyOnClose;                                          // 0x024D(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	bool                                               bDestroyOnClose = true;                                          // 0x024D(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RsUiWindow")
 	bool                                               bGarbageCollectOnClose;                                   // 0x024E(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
