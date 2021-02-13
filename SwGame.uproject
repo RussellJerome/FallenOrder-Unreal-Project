@@ -1,17 +1,17 @@
 {
-  "FileVersion": 3,
-  "EngineAssociation": "4.21",
-  "Category": "",
-  "Description": "",
-  "Modules": [
-    {
-      "Name": "SwGame",
-      "Type": "Runtime",
-      "LoadingPhase": "Default",
-      "AdditionalDependencies": [
-        "Engine",
-        "RsGameTechRT"
-      ]
-    }
-  ]
+	"FileVersion": 3,
+	"EngineAssociation": "{C752ADB3-4A77-4053-BA98-2D98030AA63C}",
+	"Category": "",
+	"Description": "",
+	"Modules": [
+		{
+			"Name": "SwGame",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine",
+				"RsGameTechRT"
+			]
+		}
+	]
 }

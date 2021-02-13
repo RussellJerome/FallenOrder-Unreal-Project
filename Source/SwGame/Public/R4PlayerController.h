@@ -4,13 +4,14 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
+#include "RsPlayerController.h"
 #include "R4PlayerController.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class SWGAME_API AR4PlayerController : public APlayerController
+class SWGAME_API AR4PlayerController : public ARsPlayerController
 {
 	GENERATED_BODY()
 	
