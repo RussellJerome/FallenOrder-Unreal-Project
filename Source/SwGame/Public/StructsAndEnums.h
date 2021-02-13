@@ -911,3 +911,21 @@ public:
 	//UAkAudioEvent*                               ReflectSFX;                                               // 0x0010(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
 	//UAkAudioEvent*                               DeflectSFX;                                               // 0x0018(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
 };
+
+USTRUCT(BlueprintType)
+struct FSwLightsaberBladeState
+{
+	GENERATED_BODY()
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FSwLightsaberBladeState")
+	struct FVector                                     PosWs;                                                    // 0x0000(0x000C) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FSwLightsaberBladeState")
+	struct FVector                                     DirWs;                                                    // 0x000C(0x000C) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FSwLightsaberBladeState")
+	float                                              Length;                                                   // 0x0018(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FSwLightsaberBladeState")
+	bool                                               bExtended;                                                // 0x001C(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+};
