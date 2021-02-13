@@ -2529,3 +2529,17 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsSaveGameInfo")
 	FRsSaveGameMetaData                         MetaData;                                                 // 0x0070(0x0028) (BlueprintVisible, BlueprintReadOnly)
 };
+
+// ScriptStruct Engine.RespawnInstanceDataBlueprintRef
+// 0x0010
+struct FRespawnInstanceDataBlueprintRef
+{
+	class AActor*                                      InstanceDataOwner;                                        // 0x0000(0x0008) (ZeroConstructor, IsPlainOldData)
+	int                                                InstanceDataUID;                                          // 0x0008(0x0004) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x000C(0x0004) MISSED OFFSET
+};
+
+struct FRsAISpawnerRef : public FRespawnInstanceDataBlueprintRef
+{
+
+};

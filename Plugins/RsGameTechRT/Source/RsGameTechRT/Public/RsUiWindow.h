@@ -5,7 +5,7 @@
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
 #include "RsUiButton.h"
-#include "RsUiRoot.h"
+//#include "RsUiRoot.h"
 #include "RsUiWindow.generated.h"
 
 /**
@@ -21,19 +21,19 @@ public:
 	//FScriptMulticastDelegate                    OnFocusGroupStateChanged;                                 // 0x0238(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RsUiWindow")
-	bool                                               bPauseGameWhileOpen;                                      // 0x0248(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	bool                                               bPauseGameWhileOpen = true;                                      // 0x0248(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RsUiWindow")
-	bool                                               bDisableGameInput;                                        // 0x0249(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	bool                                               bDisableGameInput = true;                                        // 0x0249(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RsUiWindow")
 	bool                                               bDisableInputToOtherWindows;                              // 0x024A(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RsUiWindow")
-	bool                                               bConsumeInput;                                            // 0x024B(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	bool                                               bConsumeInput = true;                                            // 0x024B(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RsUiWindow")
-	bool                                               bCloseOnCancel;                                           // 0x024C(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	bool                                               bCloseOnCancel = true;                                           // 0x024C(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RsUiWindow")
 	bool                                               bDestroyOnClose;                                          // 0x024D(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
@@ -92,7 +92,6 @@ public:
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RsUiWindow")
 	TMap<FName, float>                          HeldInputActions;                                         // 0x0510(0x0050) (ZeroConstructor)
-	unsigned char                                      UnknownData07[0x58];                                      // 0x0560(0x0058) MISSED OFFSET
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RsUiWindow")
 	TArray<URsUiButton*>                         FocusedButtons;                                           // 0x05B8(0x0010) (ExportObject, ZeroConstructor)
@@ -101,7 +100,7 @@ public:
 	TArray<URsUiButton*>                         ChildButtons;                                             // 0x05C8(0x0010) (ExportObject, ZeroConstructor)
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RsUiWindow")
-	URsUiRoot*                                   OwningRoot;                                               // 0x05D8(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
+	class URsUiRoot*                                   OwningRoot;                                               // 0x05D8(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
 
 	//Funcs
 
