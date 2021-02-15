@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "RsGameTechRT/Public/StructsAndEnums_RsGameTechRT.h"
+#include "GameplayTagContainer.h"
+#include "Engine/DataTable.h"
 #include "StructsAndEnums.generated.h"
 
 // Enum RsTechRT.ERsInfluenceLinearType
@@ -928,4 +930,139 @@ public:
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FSwLightsaberBladeState")
 	bool                                               bExtended;                                                // 0x001C(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+};
+
+USTRUCT(BlueprintType)
+struct FSwMeditationTrainingModifier
+{
+	GENERATED_BODY()
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FSwMeditationTrainingModifier")
+	FString                                      DisplayName;                                              // 0x0000(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FSwMeditationTrainingModifier")
+	FText                                       LocalizedName;                                            // 0x0010(0x0028) (Edit, BlueprintVisible)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FSwMeditationTrainingModifier")
+	FString                                      Description;                                              // 0x0028(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FSwMeditationTrainingModifier")
+	int                                                MaxSetting;                                               // 0x0038(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FSwMeditationTrainingModifier")
+	int                                                CurrentSetting;                                           // 0x003C(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+};
+
+USTRUCT(BlueprintType)
+struct FSwMeditationTrainingGridSizePreset
+{
+	GENERATED_BODY()
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FSwMeditationTrainingGridSizePreset")
+	FName                                       Label;                                                    // 0x0000(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FSwMeditationTrainingGridSizePreset")
+	FIntPoint                                   Size;                                                     // 0x0008(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FSwMeditationTrainingGridSizePreset")
+	FText                                       LabelLocalized;                                           // 0x0010(0x0028) (Edit, BlueprintVisible, BlueprintReadOnly)
+};
+
+USTRUCT(BlueprintType)
+struct FSwMeditationTrainingGridSetting
+{
+	GENERATED_BODY()
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FSwMeditationTrainingGridSetting")
+	FIntPoint                                   GridSize;                                                 // 0x0000(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FSwMeditationTrainingGridSetting")
+	bool                                     DisabledCells;                                            // 0x0008(0x0001) I think
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FSwMeditationTrainingGridSetting")
+	float                                              CellSize;                                                 // 0x000C(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FSwMeditationTrainingGridSetting")
+	float                                              CellSizeMultiplier;                                       // 0x0010(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FSwMeditationTrainingGridSetting")
+	FLinearColor                                BaseColor;                                                // 0x0014(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FSwMeditationTrainingGridSetting")
+	FLinearColor                                OccupiedColor;                                            // 0x0024(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FSwMeditationTrainingGridSetting")
+	FLinearColor                                AvailableColor;                                           // 0x0034(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+};
+
+USTRUCT(BlueprintType)
+struct FSwMeditationTrainingLayout
+{
+	GENERATED_BODY()
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FSwMeditationTrainingLayout")
+	FName                                       ArenaName;                                                // 0x0000(0x0008) (Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FSwMeditationTrainingLayout")
+	FIntPoint                                   GridSize;                                                 // 0x0008(0x0008) (Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FSwMeditationTrainingLayout")
+	TArray<TEnumAsByte<ESwMeditationTrainingHeroModifier>>          EnabledHeroModifierList;                                  // 0x0010(0x0010) (Edit, BlueprintVisible, ZeroConstructor, SaveGame)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FSwMeditationTrainingLayout")
+	TArray<FString>                              EnemyDefinitionIdentifiers;                               // 0x0020(0x0010) (Edit, BlueprintVisible, ZeroConstructor, SaveGame)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FSwMeditationTrainingLayout")
+	TArray<FTransform>                          EnemyTransforms;                                          // 0x0030(0x0010) (Edit, BlueprintVisible, ZeroConstructor, SaveGame)
+};
+
+USTRUCT(BlueprintType)
+struct FSwMeditationTrainingEnemyData : public FTableRowBase
+{
+	GENERATED_BODY()
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FSwMeditationTrainingEnemyData")
+	FText                                       EnemyName;                                                // 0x0008(0x0028) (Edit, BlueprintVisible, BlueprintReadOnly)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FSwMeditationTrainingEnemyData")
+	class USwAICharacterDefinition*                    EnemyType;                                                // 0x0020(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FSwMeditationTrainingEnemyData")
+	float                                              EnemySpawnVerticalOffset;                                 // 0x0028(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FSwMeditationTrainingEnemyData")
+	UClass*                                      NonCharActorToSpawn;                                      // 0x0030(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FSwMeditationTrainingEnemyData")
+	float                                              NonCharActorVerticalOffset;                               // 0x0038(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FSwMeditationTrainingEnemyData")
+	int                                                EnemyCost;                                                // 0x003C(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FSwMeditationTrainingEnemyData")
+	struct FGameplayTag                                MeditationTrainingUnlockTag;                              // 0x0040(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FSwMeditationTrainingEnemyData")
+	struct FGameplayTagContainer                       TagsToApplyToEnemy;                                       // 0x0048(0x0020) (Edit, BlueprintVisible, BlueprintReadOnly)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FSwMeditationTrainingEnemyData")
+	class UTexture2D*                                  EnemyPortrait;                                            // 0x0068(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FSwMeditationTrainingEnemyData")
+	struct FGameplayTagContainer                       FilterTags;                                               // 0x0070(0x0020) (Edit, BlueprintVisible, BlueprintReadOnly)
+};
+
+USTRUCT(BlueprintType)
+struct FSwMeditationTrainingSpawnedEnemyInfo
+{
+	GENERATED_BODY()
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FSwMeditationTrainingSpawnedEnemyInfo")
+	class ARsAICharacter*                              SpawnedEnemy;                                             // 0x0000(0x0008) (ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FSwMeditationTrainingSpawnedEnemyInfo")
+	class AActor*                                      SpawnedNonCharActor;                                      // 0x0008(0x0008) (ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FSwMeditationTrainingSpawnedEnemyInfo")
+	FSwMeditationTrainingEnemyData              EnemyData;                                                // 0x0010(0x0090)
 };
