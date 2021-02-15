@@ -15,7 +15,7 @@ class RSGAMETECHRT_API URsAICharacterDefinition : public URsCharacterDefinition
 {
 	GENERATED_BODY()
 public:
-	UPROPERTY(EditDefaultsOnly, Category = "AICharacterDefinition")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AICharacterDefinition")
 		UClass*                                      AIClass;                                                  // 0x0200(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, NoClear, IsPlainOldData)
 
 	UPROPERTY(EditDefaultsOnly, Category = "AICharacterDefinition")
