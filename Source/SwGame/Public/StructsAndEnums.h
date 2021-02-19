@@ -1066,3 +1066,15 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FSwMeditationTrainingSpawnedEnemyInfo")
 	FSwMeditationTrainingEnemyData              EnemyData;                                                // 0x0010(0x0090)
 };
+
+USTRUCT(BlueprintType)
+struct FPhotomodeFilter
+{
+	GENERATED_BODY()
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FPhotomodeFilter")
+	FText                                       FilterText;                                               // 0x0000(0x0028) (Edit)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FPhotomodeFilter")
+	class UMaterialInterface*                          FilterMaterial;                                           // 0x0018(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+};
