@@ -6,40 +6,9 @@
 #include "RsGameTechRT/Public/StructsAndEnums_RsGameTechRT.h"
 #include "GameplayTagContainer.h"
 #include "Engine/DataTable.h"
+#include "RsTechRT/Public/StructsAndEnums_RsTechRT.h"
 #include "StructsAndEnums.generated.h"
 
-// Enum RsTechRT.ERsInfluenceLinearType
-UENUM(BlueprintType)
-enum ERsInfluenceLinearType
-{
-	NONE_ERsInfluenceLinearType = 0,
-	POSITION = 1,
-	VELOCITY_ERsInfluenceLinearType = 2,
-	ACCELERATION = 3,
-	POSITION_TIME_REMAP = 4,
-	ERsInfluenceLinearType_MAX = 5
-};
-
-// Enum RsTechRT.ERsInfluenceAngularType
-UENUM(BlueprintType)
-enum ERsInfluenceAngularType
-{
-	NONE1 = 0,
-	ANGLE = 1,
-	ERsInfluenceAngularType_MAX = 2
-};
-
-// Enum RsTechRT.ERsBase
-UENUM(BlueprintType) enum ERsBase
-{
-	LOCAL = 0,
-	PARENT = 1,
-	WORLD = 2,
-	COUNT_ERsBase = 3,
-	UNDEFINED_ERsBase = 4,
-	ERsBase_MAX = 5
-};
-// END OF CURRENT SHIT NEEDED FOR TESTING 
 // SwGame_Enums
 //---------------------------------------------------------------------------
 //Enums
@@ -777,41 +746,6 @@ public:
 	unsigned char                                      UnknownData00[0xE0];                                      // 0x0000(0x00E0) MISSED OFFSET
 };
 
-// ScriptStruct RsGameTechRT.RsCharacterAnimDataBase
-// 0x0040
-USTRUCT(BlueprintType)
-struct FRsCharacterAnimDataBase
-{
-	GENERATED_BODY()
-public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0000(0x0008) MISSED OFFSET
-	float                                              StartTime;                                                // 0x0008(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	bool                                               PlayRandomAnimation;                                      // 0x000C(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x3];                                       // 0x000D(0x0003) MISSED OFFSET
-	float                                              Playrate;                                                 // 0x0010(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	bool                                               bStopAnimOnAbort;                                         // 0x0014(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData02[0x3];                                       // 0x0015(0x0003) MISSED OFFSET
-	float                                              BlendInTime;                                              // 0x0018(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	float                                              BlendOutTime;                                             // 0x001C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	int                                                LoopCount;                                                // 0x0020(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	float                                              BlendOutTriggerTime;                                      // 0x0024(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	FName                                       SlotNodeName;                                             // 0x0028(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	FVector2D                                   BlendSpaceInput;                                          // 0x0030(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	bool                                               bUseMontage;                                              // 0x0038(0x0001) (ZeroConstructor, IsPlainOldData)
-	bool                                               bUseBlendSpace;                                           // 0x0039(0x0001) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData03[0x6];                                       // 0x003A(0x0006) MISSED OFFSET
-};
-
-// ScriptStruct RsGameTechRT.RsCharacterAnimationData
-// 0x0008 (0x0048 - 0x0040)
-USTRUCT(BlueprintType)
-struct FRsCharacterAnimationData : public FRsCharacterAnimDataBase
-{
-	GENERATED_BODY()
-public:
-	class UAnimationAsset*                             AnimAsset;                                                // 0x0040(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-};
-
 // ScriptStruct RsGameTechRT.RsSyncDataOverride
 // 0x0060
 USTRUCT(BlueprintType)
@@ -1077,4 +1011,13 @@ public:
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FPhotomodeFilter")
 	class UMaterialInterface*                          FilterMaterial;                                           // 0x0018(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+};
+
+USTRUCT(BlueprintType)
+struct FSwDefenseParameters : public FRsDirectionAnimationParameters
+{
+	GENERATED_BODY()
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FSwDefenseParameters")
+		TEnumAsByte < ERsCharacterDefense   >                             DefenseType;                                              // 0x0002(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 };

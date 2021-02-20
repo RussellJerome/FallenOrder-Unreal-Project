@@ -2543,3 +2543,166 @@ struct FRsAISpawnerRef : public FRespawnInstanceDataBlueprintRef
 {
 
 };
+
+USTRUCT(BlueprintType)
+struct FRsCharacterAnimDataBase
+{
+	GENERATED_BODY()
+public:
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsCharacterAnimDataBase")
+	float                                              StartTime;                                                // 0x0008(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsCharacterAnimDataBase")
+	bool                                               PlayRandomAnimation;                                      // 0x000C(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsCharacterAnimDataBase")
+	float                                              Playrate;                                                 // 0x0010(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsCharacterAnimDataBase")
+	bool                                               bStopAnimOnAbort;                                         // 0x0014(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsCharacterAnimDataBase")
+	float                                              BlendInTime;                                              // 0x0018(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsCharacterAnimDataBase")
+	float                                              BlendOutTime;                                             // 0x001C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsCharacterAnimDataBase")
+	int                                                LoopCount;                                                // 0x0020(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsCharacterAnimDataBase")
+	float                                              BlendOutTriggerTime;                                      // 0x0024(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsCharacterAnimDataBase")
+	FName                                       SlotNodeName;                                             // 0x0028(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsCharacterAnimDataBase")
+	FVector2D                                   BlendSpaceInput;                                          // 0x0030(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsCharacterAnimDataBase")
+	bool                                               bUseMontage;                                              // 0x0038(0x0001) (ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsCharacterAnimDataBase")
+	bool                                               bUseBlendSpace;                                           // 0x0039(0x0001) (ZeroConstructor, IsPlainOldData)
+};
+
+
+// ScriptStruct RsGameTechRT.RsCharacterAnimationData
+// 0x0008 (0x0048 - 0x0040)
+USTRUCT(BlueprintType)
+struct FRsCharacterAnimationData : public FRsCharacterAnimDataBase
+{
+	GENERATED_BODY()
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsCharacterAnimationData")
+	class UAnimationAsset*                             AnimAsset;                                                // 0x0040(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+};
+
+USTRUCT(BlueprintType)
+struct FRsDirectionAnimationParameters
+{
+	GENERATED_BODY()
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsDirectionAnimationParameters")
+		TEnumAsByte < ERsAttackerDirection >                              AttackerDirection;                                        // 0x0000(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsDirectionAnimationParameters")
+		TEnumAsByte < ERsAttackSwingDirection>                            AttackSwingDirection;                                     // 0x0001(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+};
+
+USTRUCT(BlueprintType)
+struct FRsDamageParams
+{
+	GENERATED_BODY()
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsDamageParams")
+	TWeakObjectPtr<UPrimitiveComponent>          DamagedActorCollider;                                     // 0x0000(0x0008) (BlueprintVisible, ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsDamageParams")
+	TEnumAsByte < ERsAttackSwingDirection >                           SwingDirection;                                           // 0x0008(0x0001) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsDamageParams")
+	TEnumAsByte < ERsAttackerDirection   >                            AttackerDirection;                                        // 0x0009(0x0001) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsDamageParams")
+	FVector                                     AttackerDirectionVector;                                  // 0x000C(0x000C) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsDamageParams")
+	FVector                                     HitLocation;                                              // 0x0018(0x000C) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsDamageParams")
+	FVector                                     HitVelocity;                                              // 0x0024(0x000C) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsDamageParams")
+	FVector                                     HitNormal;                                                // 0x0030(0x000C) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsDamageParams")
+	FName                                       HitBone;                                                  // 0x0040(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsDamageParams")
+	TWeakObjectPtr<UPhysicalMaterial>            HitPhysMaterial;                                          // 0x0048(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsDamageParams")
+	FRsHitEvent                                 HitEvent;                                                 // 0x0050(0x0040) (BlueprintVisible)
+};
+
+USTRUCT(BlueprintType)
+struct FRsAIScoreDecayCurve
+{
+	GENERATED_BODY()
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsAIScoreDecayCurve")
+	float                                              UpperBound;                                               // 0x0000(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsAIScoreDecayCurve")
+	float                                              LowerBound;                                               // 0x0004(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsAIScoreDecayCurve")
+	float                                              DecayTime;                                                // 0x0008(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsAIScoreDecayCurve")
+	TEnumAsByte<ERsAICurveType>                        CurveType;                                                // 0x000C(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+};
+
+USTRUCT(BlueprintType)
+struct FRsAIAwarenessStateSettings_Alert
+{
+	GENERATED_BODY()
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsAIAwarenessStateSettings_Alert")
+	float                                              MinCooldownTime;                                          // 0x0000(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsAIAwarenessStateSettings_Alert")
+	float                                              MaxCooldownTime;                                          // 0x0004(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsAIAwarenessStateSettings_Alert")
+	float                                              MinBaseDelayForDefaultReaction;                           // 0x0008(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsAIAwarenessStateSettings_Alert")
+	float                                              MaxBaseDelayForDefaultReaction;                           // 0x000C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsAIAwarenessStateSettings_Alert")
+	float                                              MinDistanceDelayForDefaultReaction;                       // 0x0010(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsAIAwarenessStateSettings_Alert")
+	float                                              MaxDistanceDelayForDefaultReaction;                       // 0x0014(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+};
+
+USTRUCT(BlueprintType)
+struct FRsAIAwarenessStateSettings_Aggro
+{
+	GENERATED_BODY()
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsAIAwarenessStateSettings_Aggro")
+	float                                              MinCooldownTimeWhenThreatsPresent;                        // 0x0000(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsAIAwarenessStateSettings_Aggro")
+	float                                              MaxCooldownTimeWhenThreatsPresent;                        // 0x0004(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsAIAwarenessStateSettings_Aggro")
+	float                                              MinCooldownTimeWhenNoThreats;                             // 0x0008(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsAIAwarenessStateSettings_Aggro")
+	float                                              MaxCooldownTimeWhenNoThreats;                             // 0x000C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+};
