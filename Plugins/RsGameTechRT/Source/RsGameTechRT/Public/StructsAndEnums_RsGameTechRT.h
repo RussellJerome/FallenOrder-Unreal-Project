@@ -2543,3 +2543,18 @@ struct FRsAISpawnerRef : public FRespawnInstanceDataBlueprintRef
 {
 
 };
+
+USTRUCT(BlueprintType)
+struct FRsMapSectionTag
+{
+	GENERATED_BODY()
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsMapSectionTag")
+	FName                                       WorldName;                                                // 0x0000(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, SaveGame, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsMapSectionTag")
+	FName                                       RegionName;                                               // 0x0008(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, SaveGame, IsPlainOldData)
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsMapSectionTag")
+	int                                      SectionIndex;                                             // 0x0010(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, SaveGame, IsPlainOldData)
+};
