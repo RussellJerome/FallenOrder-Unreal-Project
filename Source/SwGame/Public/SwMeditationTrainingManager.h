@@ -18,6 +18,11 @@ public:
 	// Sets default values for this actor's properties
 	ASwMeditationTrainingManager();
 
+	DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FEnemySpawn, UObject*, SpawnedAI);
+
+	UPROPERTY(BlueprintAssignable, Category = "AISpawn")
+		FEnemySpawn OnEnemySpawnedEvent;
+
 	//struct FScriptMulticastDelegate                    OnAllAiSpawned;                                           // 0x0378(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SwMeditationTrainingManager")
@@ -213,7 +218,7 @@ public:
 	struct FScriptMulticastDelegate                    OnEnemyCountChangedEvent;                                 // 0x06E0(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
 	unsigned char                                      UnknownData07[0x210];                                     // 0x06F0(0x0210) MISSED OFFSET
 	*/
-	
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SwMeditationTrainingManager")
 	class ARsPlayerController*                         PlayerController;                                         // 0x0900(0x0008) (ZeroConstructor, IsPlainOldData)
 	

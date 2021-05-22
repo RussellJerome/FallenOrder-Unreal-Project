@@ -123,5 +123,8 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "RsGameplayStatics", meta = (WorldContext = "WorldContextObject"))
 		static void BlueprintError(UObject* WorldContextObject, const FString& Error);
 
+	UFUNCTION(BlueprintCallable, Category = "RsGameplayStatics", meta = (WorldContext = "WorldContextObject"))
+		static class URsTargetableComponent* GetTargetableComponent(class AActor* Actor) { return nullptr; };
+
 	
 };
