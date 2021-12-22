@@ -2558,3 +2558,40 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsMapSectionTag")
 	int                                      SectionIndex;                                             // 0x0010(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, SaveGame, IsPlainOldData)
 };
+
+
+USTRUCT(BlueprintType)
+struct FRsBitfield_HeroLoadoutFlags
+{
+	GENERATED_BODY()
+public:
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsBitfield_HeroLoadoutFlags")
+	//int64 Bits;
+};
+
+USTRUCT(BlueprintType)
+struct FRsBitfield_NavState
+{
+	GENERATED_BODY()
+public:
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsBitfield_NavState")
+	//int64 Bits;
+};
+
+USTRUCT(BlueprintType)
+struct FRsBitfield_HeroUpgradeFlags
+{
+	GENERATED_BODY()
+public:
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsBitfield_HeroUpgradeFlags")
+	//int64 Bits;
+};
+
+USTRUCT(BlueprintType)
+struct FRsBitfield_HeroInputFlags
+{
+	GENERATED_BODY()
+public:
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FRsBitfield_HeroInputFlags")
+	//int64 Bits;
+};

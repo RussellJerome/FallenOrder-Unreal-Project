@@ -8,7 +8,7 @@
 #include "RsHeroComponent.generated.h"
 
 
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent), Blueprintable )
 class RSGAMETECHRT_API URsHeroComponent : public UActorComponent
 {
 	GENERATED_BODY()
