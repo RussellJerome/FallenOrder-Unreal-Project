@@ -1,0 +1,26 @@
+{
+	"PluginFileVersion": 1,
+	"FileVersion": 3,
+	"FriendlyName": "RsDevNet",
+	"Version": 1,
+	"VersionName": "1.1.1",
+	"Description": "Respawn DevNet client for UE4",
+	"Category": "Respawn",
+	"CreatedBy": "Respawn, LLC",
+	"CreatedByURL": "",
+	"CanContainContent": false,
+	"EnabledByDefault": "true",
+
+	"Modules": [
+		{
+			"Name": "RsDevNetRT",
+			"Type": "Runtime"
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "RsTechRT",
+			"Enabled": true
+		}
+	]
+}

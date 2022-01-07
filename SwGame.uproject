@@ -1,6 +1,118 @@
 {
 	"FileVersion": 3,
-	"EngineAssociation": "{91E65965-4E1C-DDB7-C7A9-319D4C0FD2BB}",
+	"EngineAssociation": "{D5813375-4499-D300-0582-73A4A81A65FA}",
 	"Category": "",
-	"Description": ""
+	"Description": "SW",
+	"Modules": [
+		{
+			"Name": "SwGame",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine"
+			]
+		}
+	],
+"Plugins": [
+		{
+			"Name": "RsDevNetRT",
+			"Enabled": true
+		},
+		{
+			"Name": "RsTechRT",
+			"Enabled": true
+		},
+		{
+			"Name": "RsGameTechRT",
+			"Enabled": true
+		},
+		{
+			"Name": "ApexDestruction",
+			"Enabled": true
+		},
+		{
+			"Name": "DialoguePlugin",
+			"Enabled": false,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/847aa65dc3024a37ae83ed89307524bd"
+		},
+		{
+			"Name": "Telemetry",
+			"Enabled": false
+		},
+		{
+			"Name": "ProxyLODPlugin",
+			"Enabled": true
+		},
+		{
+			"Name": "SteamVR",
+			"Enabled": false
+		},
+		{
+			"Name": "OculusVR",
+			"Enabled": false
+		},
+		{
+			"Name": "AppleVision",
+			"Enabled": false
+		},
+		{
+			"Name": "AppleImageUtils",
+			"Enabled": false
+		},
+		{
+			"Name": "MagicLeap",
+			"Enabled": false
+		},
+		{
+			"Name": "Niagara",
+			"Enabled": true
+		},
+		{
+			"Name": "MfMedia",
+			"Enabled": true
+		},
+		{
+			"Name": "SequencerScripting",
+			"Enabled": true
+		},
+		{
+			"Name": "EditorScriptingUtilities",
+			"Enabled": true
+		},
+		{
+			"Name": "BlueprintStats",
+			"Enabled": true
+		},
+		{
+			"Name": "SignificanceManager",
+			"Enabled": true
+		},
+		{
+			"Name": "OnlineSubsystemPS4",
+			"Enabled": false,
+			"SupportedTargetPlatforms": [
+				"PS4"
+			]
+		},
+		{
+			"Name": "OnlineSubsystemLive",
+			"Enabled": false,
+			"SupportedTargetPlatforms": [
+				"XboxOne"
+			]
+		},
+		{
+			"Name": "OnlineSubsystemOrigin",
+			"Enabled": false,
+			"SupportedTargetPlatforms": [
+				"Win64"
+			]
+		}
+	],
+	"TargetPlatforms": [
+		"PS4",
+		"Windows",
+		"WindowsNoEditor",
+		"XboxOne"
+	]
 }
