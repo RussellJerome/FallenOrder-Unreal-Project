@@ -2,16 +2,5 @@
 	"FileVersion": 3,
 	"EngineAssociation": "{91E65965-4E1C-DDB7-C7A9-319D4C0FD2BB}",
 	"Category": "",
-	"Description": "",
-	"Modules": [
-		{
-			"Name": "SwGame",
-			"Type": "Runtime",
-			"LoadingPhase": "Default",
-			"AdditionalDependencies": [
-				"Engine",
-				"RsGameTechRT"
-			]
-		}
-	]
+	"Description": ""
 }
